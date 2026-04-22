@@ -1,5 +1,4 @@
 #include "textRenderer/TextRenderer.h"
-#include "shapeRenderer/ShapeRenderer.h"
 #include <vector>
 #include <string>
 

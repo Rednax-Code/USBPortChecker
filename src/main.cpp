@@ -10,14 +10,10 @@
 
 #include <pico/stdlib.h>
 #include <pico/bootrom.h>
-#include <pico/time.h>
-#include <stdio.h>
 
-#include "hardware/clocks.h"
 #include "ssd1306.h"
 #include "tusb.h"
 #include "device/usbd.h"
-#include "class/msc/msc_device.h"
 #include "hardware/i2c.h"
 #include "xxhash.h"
 
@@ -26,24 +22,14 @@
 #include "config.h"
 #include "ramdisk.h"
 
-// Use this to turn on/off the blinking light
-#define DEBUG
-
-// Define vars for OLED screen
-#define I2C_PORT i2c0
-#define I2C_PIN_SDA 4
-#define I2C_PIN_SCL 5
-#define I2C_ADDRESS 0x3C  // 0X3C+SA0 - 0x3C or 0x3D
-
-// Vars for the Hashing algorithm
-#define BYTES_TO_HASH 512 * 2   // Number of bytes of the RAM disk used in the check
-#define BYTES_TO_HASH_OFFSET 7  // Starting sector of the check (FAT_DIRECTORY is 7)
-
 // Burned hash of a valid file system
 uint valid_hash = 3534146792;
 
+#ifdef DEBUG
+#include <pico/time.h>
 // The light on board for debugging purposes
 const uint LED_PIN = PICO_DEFAULT_LED_PIN;
+#endif
 
 // Setup Core0
 void setup() {

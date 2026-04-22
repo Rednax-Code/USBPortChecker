@@ -1,6 +1,7 @@
+#include <string.h>
+
 #include "globals.h"
 #include "hexdump.h"
-#include "tusb.h"
 #include "config.h"
 #include "ramdisk.h"
 
