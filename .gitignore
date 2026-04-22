@@ -53,3 +53,7 @@ dkms.conf
 
 USBvalve_out
 build
+
+# Added by Rednax
+.vscode
+*.lnk
