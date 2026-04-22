@@ -5,6 +5,7 @@
 #define VERSION "Rednax"
 #define MAX_LINES 6
 #define LINE_HEIGHT 8
+#define START_X 2
 #define START_Y 14
 
 // https://javl.github.io/image2cpp/ <- SO to this legend
@@ -109,7 +110,7 @@ void printout(pico_ssd1306::SSD1306* display, const char* str) {
         pico_ssd1306::drawText(
             display, font_5x8, 
             textBuffer[i].c_str(), 
-            1, START_Y + (i * LINE_HEIGHT)
+            START_X, START_Y + (i * LINE_HEIGHT)
         );
     }
 
